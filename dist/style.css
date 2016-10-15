@@ -1,0 +1,58 @@
+body {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+body.basic {
+	width: 90%;
+	margin: 0px auto;
+	font-size: 14px;
+	line-height: 1.428571429;
+	color: #333;
+}
+
+body.basic h1{
+	font-size: 36px;
+}
+
+body.basic hr {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: 0;
+	border-top: 1px solid #eee;
+}
+
+body.landing {
+	padding-top: 90px;
+}
+
+h1 {
+	color: #d9534f;
+}
+
+body.landing .links a {
+	font-size: 25px;
+	margin: 15px;
+	display: inline-block;
+}
+
+img.demo-img {
+	border: 1px solid #d0d0d0;
+	padding: 22px;
+	margin-top: 20px;
+	box-shadow: 0px 1px 20px #D0D0D4;
+}
+
+textarea {
+	height: 17px;
+	width: 300px;
+	padding-top:5px;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	overflow: auto;
+	outline: none;
+	border: 1px solid #555;
+}
+
+.final-output {
+	padding: 10px 0px;
+}
