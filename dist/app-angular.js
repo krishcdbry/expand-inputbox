@@ -22,6 +22,7 @@
 	 */
 	app.controller('expandInputController', ['$scope', '$element', function ($scope, $element) {
 
+        $scope.textboxHeight = 33;  // You can set this height according to your requirement
 
 		/**
 		 * @doc method
@@ -46,15 +47,17 @@
 		 */
 		$scope.onTyping = function (eve) {
 			var $this = eve.currentTarget;
-			$($this).css({"overflow": "hidden"});
-			$($this).css({"height": "33px"});
-			$($this).css({"height": ($($this).prop('scrollHeight') > 33) ? $($this).prop('scrollHeight') + 'px' : '33px'});
 			if (eve.keyCode === 13 && !eve.shiftKey) {
 				$scope.submit();
 				$($this).css({"height": "33px"});
 			}
+			else {
+				$($this).css({"overflow": "hidden"});
+				$($this).css({"height": $scope.textboxHeight + "px"});
+				$($this).css({"height": ($($this).prop('scrollHeight') > $scope.textboxHeight) ? $($this).prop('scrollHeight') + 'px' : $scope.textboxHeight + 'px'});
+			}
 		};
 
-		$($element.find('textarea')).css({"height": "33px"});
+		$($element.find('textarea')).css({"height": $scope.textboxHeight + "px"});
 	}])
 }(angular));

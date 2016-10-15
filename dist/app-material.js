@@ -9,7 +9,7 @@
 	 * @description
 	 * Parent app which includes modules and workout proper functionality for expandInputApp
 	 */
-	var app = angular.module('expandInputApp', ['ngMaterial', 'ngAria', 'ngMessages', 'ngRoute']);
+	var app = angular.module('expandInputApp', ['ngMaterial']);
 
 	/**
 	 * @ngdoc Controller
@@ -22,6 +22,8 @@
 	 */
 	app.controller('expandInputController', ['$scope', '$element', function ($scope, $element) {
 
+		$scope.textboxHeight = 30;  // You can set this height according to your requirement
+		$scope.scrollHeightLimit = 50;  // To get rid of text outline jumping
 
 		/**
 		 * @doc method
@@ -46,15 +48,15 @@
 		 */
 		$scope.onTyping = function (eve) {
 			var $this = eve.currentTarget;
-			if ($($this).prop('scrollHeight') > 50) {
+			if ($($this).prop('scrollHeight') > $scope.scrollHeightLimit) {
 				$($this).css({"height": $($this).prop('scrollHeight') + 'px'});
 			}
 			if (eve.keyCode === 13 && !eve.shiftKey) {
 				$scope.submit();
-				$($this).css({"height": "50px"});
+				$($this).css({"height": $scope.scrollHeightLimit+ "px"});
 			}
 		};
 
-		$($element.find('textarea')).css({"height": "30px"});
+		$($element.find('textarea')).css({"height": $scope.textboxHeight + "px"});
 	}])
 }(angular));
